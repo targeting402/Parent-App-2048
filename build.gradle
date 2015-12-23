@@ -1,0 +1,68 @@
+buildscript {
+    repositories {
+        jcenter()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:1.5.0'
+    }
+}
+
+apply plugin: 'com.android.application'
+
+dependencies {
+    compile fileTree(include: '*.jar', dir: 'libs')
+    compile 'com.facebook.android:facebook-android-sdk:4.7.0'
+    compile 'com.vk:androidsdk:+'
+    compile project(':Targeting_402')
+}
+
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+
+    defaultConfig {
+        applicationId "ru.linklink.targeting402sdk.test"
+        minSdkVersion 15
+        versionCode 201512211
+        versionName "2.1.10"
+    }
+
+    /*due to dsl file conflicts*/
+    packagingOptions {
+        exclude ('META-INF/LICENSE.txt')
+        exclude ('META-INF/NOTICE.txt')
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
+            resources.srcDirs = ['src']
+            aidl.srcDirs = ['src']
+            renderscript.srcDirs = ['src']
+            res.srcDirs = ['res']
+            assets.srcDirs = ['assets']
+        }
+
+        // Move the build types to build-types/<type>
+        // For instance, build-types/debug/java, build-types/debug/AndroidManifest.xml, ...
+        // This moves them out of them default location under src/<type>/... which would
+        // conflict with src/ being used by the main source set.
+        // Adding new build types or product flavors should be accompanied
+        // by a similar customization.
+        debug.setRoot('build-types/debug')
+        release.setRoot('build-types/release')
+    }
+}

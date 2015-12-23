@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:background="@android:color/holo_blue_dark"
+             android:padding="8dp">
+
+    <LinearLayout
+        android:id="@+id/layout_social_networks"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/login_social_network"
+            android:textColor="@android:color/white"/>
+
+        <Button
+            android:id="@+id/btn_login_facebook"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@string/facebook"/>
+
+        <Button
+            android:id="@+id/btn_login_vk"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/vk"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_logout_social"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/logout"
+        android:visibility="invisible"/>
+
+</FrameLayout>

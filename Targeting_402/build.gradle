@@ -1,0 +1,2 @@
+configurations.create("default")
+artifacts.add("default", file('Targeting_402-2.1.9.aar'))
